@@ -10,21 +10,43 @@ import javafx.event.*;
 import javafx.fxml.*;
 import javafx.scene.control.*;
 
-public class Controller  {
+public class Controller implements Initializable {
     @FXML
     private JFXTextArea shown_msgs,send_msg;
+    @FXML
+    private JFXTextField username;
+    @FXML
+    private JFXButton Button_login;
+
     StringBuilder sb = new StringBuilder();
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        // Set Label's text intialize() is called
+        try {
+            ServerThread sv = new ServerThread("192.168.122.1");
+            sv.start();
+            String msg;
+           msg = sv.getReceivedMsg();
+            sb.append("Madd: ").append(msg).append("\n");
+            shown_msgs.setText(sb.toString());
+
+        } catch (UnknownHostException | SocketException e) {
+            e.printStackTrace();
+        }
+
+        // Set Label's text on Button's action
 
 
-    public void print(ActionEvent actionEvent) {
+    }
+
+
+    public void print(ActionEvent actionEvent) throws SocketException, UnknownHostException {
+        ClientThread ct = new ClientThread(send_msg.getText(),"192.168.122.1");
 
 
 
 
 
-        new Thread(() ->{
-
-        }).start();
 
 
         sb.append("Ayyy: ").append(send_msg.getText()).append("\n");

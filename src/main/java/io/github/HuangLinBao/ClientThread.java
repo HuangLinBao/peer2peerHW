@@ -25,6 +25,10 @@ public class ClientThread extends Thread {
         clientSocket.send(sendPacket);
     }
 
+    public void closeSocket(){
+        this.clientSocket.close();
+    }
+
 //    public void receive() throws IOException {
 //        byte[] receiveData = new byte[1024];
 //        DatagramPacket receivePacket =

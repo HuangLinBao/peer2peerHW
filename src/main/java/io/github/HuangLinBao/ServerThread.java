@@ -15,16 +15,21 @@ public class ServerThread extends Thread{
   }
 
   @Override
-    public void run(){
-      DatagramPacket receivePacket =
-              new DatagramPacket(receiveData, receiveData.length);//UDP server receives packet
-      try {
-          serverSocket.receive(receivePacket);
-      } catch (IOException e) {
-          e.printStackTrace();
-      }
+    public void run() {
+      while (true) {
+          DatagramPacket receivePacket =
+                  new DatagramPacket(receiveData, receiveData.length);//UDP server receives packet
+          try {
+              serverSocket.receive(receivePacket);
+          } catch (IOException e) {
+              e.printStackTrace();
+          }
 
-      this.receivedMsg = new String(receivePacket.getData()).trim();
+          this.receivedMsg = new String(receivePacket.getData()).trim();
+      }
   }
 
+    public String getReceivedMsg() {
+        return receivedMsg;
+    }
 }
