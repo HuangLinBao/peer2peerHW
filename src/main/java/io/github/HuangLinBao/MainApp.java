@@ -27,7 +27,11 @@ public class MainApp extends Application {
 
     public static void main(String[] args) throws IOException {
 
-
+//        ServerThread sv = new ServerThread("192.168.122.251");
+//        sv.run();
+//        ClientThread ct = new ClientThread("fuck","192.168.122.251");
+//        ct.send();
+//        ct.closeSocket();
         launch(args);
     }
 
