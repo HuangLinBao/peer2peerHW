@@ -11,22 +11,28 @@ public class ServerThread extends Thread{
 
   public ServerThread(String IP) throws UnknownHostException, SocketException {
       this.IPAddress = InetAddress.getByName(IP);
-      this.serverSocket =new DatagramSocket();
   }
 
   @Override
-    public void run() {
-      while (true) {
-          DatagramPacket receivePacket =
-                  new DatagramPacket(receiveData, receiveData.length);//UDP server receives packet
-          try {
-              serverSocket.receive(receivePacket);
-          } catch (IOException e) {
-              e.printStackTrace();
-          }
+  public void run() {
+      try {
+          this.serverSocket = new DatagramSocket(8080);
 
-          this.receivedMsg = new String(receivePacket.getData()).trim();
+          while (true) {
+              DatagramPacket receivePacket =
+                      new DatagramPacket(this.receiveData, this.receiveData.length);
+              this.serverSocket.receive(receivePacket);
+              receivedMsg = new String(receivePacket.getData()).trim();
+          }
+          //UDP server receives packet
+
+
+      } catch (SocketException e) {
+          e.printStackTrace();
+      } catch (IOException e) {
+          e.printStackTrace();
       }
+
   }
 
     public String getReceivedMsg() {

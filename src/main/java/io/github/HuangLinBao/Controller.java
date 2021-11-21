@@ -19,20 +19,26 @@ public class Controller implements Initializable {
     private JFXButton Button_login;
 
     StringBuilder sb = new StringBuilder();
+    ServerThread sv;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         // Set Label's text intialize() is called
         try {
-            ServerThread sv = new ServerThread("192.168.122.1");
-            sv.start();
-            String msg;
-           msg = sv.getReceivedMsg();
-            sb.append("Madd: ").append(msg).append("\n");
-            shown_msgs.setText(sb.toString());
+            sv = new ServerThread("192.168.122.1");
 
-        } catch (UnknownHostException | SocketException e) {
-            e.printStackTrace();
-        }
+                sv.start();
+                String msg;
+                msg = sv.getReceivedMsg();
+                if(msg != null) {
+                    sb.append("Madd: ").append(msg).append("\n");
+                    shown_msgs.setText(sb.toString());
+                }
+
+
+            } catch(UnknownHostException | SocketException e){
+                e.printStackTrace();
+            }
+
 
         // Set Label's text on Button's action
 
@@ -40,10 +46,11 @@ public class Controller implements Initializable {
     }
 
 
-    public void print(ActionEvent actionEvent) throws SocketException, UnknownHostException {
+    public void print(ActionEvent actionEvent) throws IOException {
         ClientThread ct = new ClientThread(send_msg.getText(),"192.168.122.1");
 
-
+        ct.send();
+        ct.closeSocket();
 
 
 
