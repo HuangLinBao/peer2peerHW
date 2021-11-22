@@ -8,34 +8,56 @@ import java.io.*;
 import com.jfoenix.controls.*;
 import javafx.event.*;
 import javafx.fxml.*;
-import javafx.scene.control.*;
 
 public class Controller implements Initializable {
     @FXML
-     JFXTextArea shown_msgs;
+    static
+    JFXTextField aux_username;
     @FXML
-    static JFXTextArea send_msg;
+    static
+    JFXTextArea aux_shown_msg;
+    @FXML
+    static
+    JFXTextArea aux_send_msg;
+    @FXML
+    static
+    JFXTextArea aux_online_list;
+    @FXML
+    private JFXTextArea online;
     @FXML
     private JFXTextField username;
     @FXML
     private JFXButton Button_login;
+    @FXML
+    private JFXTextArea shown_msg;
+    @FXML
+    private JFXTextArea send_msg;
 
     static StringBuilder sb = new StringBuilder();
+    static StringBuilder onlineUsers = new StringBuilder();
+
+
+
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-       new ReceiverThread().start();
+        Controller.aux_send_msg = send_msg;
+        Controller.aux_shown_msg = shown_msg;
+        Controller.aux_online_list = online;
+        Controller.aux_username = username;
 
 
     }
 
+    public void connect (){
+        new ReceiverThread().start();
+    }
+
 
     public void print(ActionEvent actionEvent) throws IOException {
-
-        new SenderThread().start();
-
         sb.append("Ayyy: ").append(send_msg.getText()).append("\n");
-        shown_msgs.setText(sb.toString());
-        send_msg.clear();
+        shown_msg.setText(sb.toString());
+        new SenderThread().start();
     }
 }
 

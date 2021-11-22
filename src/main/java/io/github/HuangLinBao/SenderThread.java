@@ -10,12 +10,12 @@ public class SenderThread extends Thread {
     public void run() {
         try {
             DatagramSocket clientSocket = new DatagramSocket();
-            InetAddress IPAddress = InetAddress.getByName("192.168.122.251");//VM server IP
+            InetAddress IPAddress = InetAddress.getByName("192.168.2.104");//VM server IP
             byte[] sendData;
-            String sentence  = Controller.send_msg.getText();
+            String sentence  = Controller.aux_send_msg.getText();
             sendData = sentence.getBytes();
             DatagramPacket sendPacket =
-                    new DatagramPacket(sendData, sendData.length, IPAddress, 6969);
+                    new DatagramPacket(sendData, sendData.length, IPAddress, 6960);
 
             clientSocket.send(sendPacket);
         } catch (IOException e) {
