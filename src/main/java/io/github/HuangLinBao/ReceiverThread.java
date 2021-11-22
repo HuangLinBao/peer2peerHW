@@ -7,9 +7,9 @@ public class ReceiverThread extends Thread {
 
         public void run() {
             try {
-//                Controller.onlineUsers.append(Controller.aux_username.getText()).append(" - ").append(InetAddress.getLocalHost().getHostAddress()).append("\n");
-//                Controller.aux_online_list.setText(Controller.onlineUsers.toString());
-                DatagramSocket clientSocket = new DatagramSocket(6960);
+                Controller.onlineUsers.append(Controller.aux_username.getText()).append(" - ").append(Controller.local_ip.getText()).append("\n");
+                Controller.aux_online_list.setText(Controller.onlineUsers.toString());
+                DatagramSocket clientSocket = new DatagramSocket(Integer.parseInt(Controller.local_port.getText()));
                     while (true) {
                         byte[] receivedData = new byte[1024];
                         DatagramPacket receivePacket =

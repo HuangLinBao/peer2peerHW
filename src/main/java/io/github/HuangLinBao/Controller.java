@@ -23,6 +23,17 @@ public class Controller implements Initializable {
     static
     JFXTextArea aux_online_list;
     @FXML
+    static
+    JFXTextField local_ip;
+    @FXML
+    static
+    JFXTextField remote_ip;
+    @FXML
+    static
+    JFXTextField local_port;
+    static
+    JFXTextField remote_port;
+    @FXML
     private JFXTextArea online;
     @FXML
     private JFXTextField username;
@@ -32,6 +43,14 @@ public class Controller implements Initializable {
     private JFXTextArea shown_msg;
     @FXML
     private JFXTextArea send_msg;
+    @FXML
+    private  JFXTextField rem_port;
+    @FXML
+    private  JFXTextField rem_ip;
+    @FXML
+    private  JFXTextField loc_ip;
+    @FXML
+    private  JFXTextField loc_port;
 
     static StringBuilder sb = new StringBuilder();
     static StringBuilder onlineUsers = new StringBuilder();
@@ -45,6 +64,10 @@ public class Controller implements Initializable {
         Controller.aux_shown_msg = shown_msg;
         Controller.aux_online_list = online;
         Controller.aux_username = username;
+        Controller.local_ip = loc_ip;
+        Controller.local_port = loc_port;
+        Controller.remote_ip = rem_ip;
+        Controller.remote_port = rem_port;
 
 
     }
