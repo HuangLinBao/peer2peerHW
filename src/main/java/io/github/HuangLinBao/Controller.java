@@ -78,7 +78,7 @@ public class Controller implements Initializable {
 
 
     public void print(ActionEvent actionEvent) throws IOException {
-        sb.append("Ayyy: ").append(send_msg.getText()).append("\n");
+        sb.append(username.getText()).append(": ").append(send_msg.getText()).append("\n");
         shown_msg.setText(sb.toString());
         new SenderThread().start();
     }

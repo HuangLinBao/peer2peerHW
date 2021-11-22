@@ -12,7 +12,7 @@ public class SenderThread extends Thread {
             DatagramSocket clientSocket = new DatagramSocket();
             InetAddress IPAddress = InetAddress.getByName(Controller.remote_ip.getText());//VM server IP
             byte[] sendData;
-            String sentence  = Controller.aux_send_msg.getText();
+            String sentence  =Controller.aux_username.getText()+": " +Controller.aux_send_msg.getText();
             sendData = sentence.getBytes();
             DatagramPacket sendPacket =
                     new DatagramPacket(sendData, sendData.length, IPAddress, Integer.parseInt(Controller.local_port.getText()));
