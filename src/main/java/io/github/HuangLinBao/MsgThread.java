@@ -13,7 +13,7 @@ public class MsgThread extends Thread{
                 Socket clientSocket = new Socket(Controller.aux_tcpIp.getText(),Integer.parseInt(Controller.aux_tcpPort.getText()));
                 DataOutputStream outToServer = new DataOutputStream(clientSocket.getOutputStream());
 
-                msgSend = Controller.aux_username.getText() + ": " + Controller.aux_send_msg.getText() + "," + Controller.remote_ip + "," + Controller.remote_port;
+                msgSend = Controller.aux_username.getText() + ": " + Controller.aux_send_msg.getText() + "," + Controller.remote_ip.getText() + "," + Controller.remote_port.getText();
                 outToServer.writeBytes(msgSend+"\n");
                 clientSocket.close();
 
