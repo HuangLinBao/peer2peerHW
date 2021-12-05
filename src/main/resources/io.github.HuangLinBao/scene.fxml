@@ -61,7 +61,7 @@
          <children>
             <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="35.0">
                <children>
-                  <JFXTextField fx:id="tcp_ip" focusColor="#1976d2" labelFloat="true" promptText="TCP Server IP">
+                  <JFXTextField fx:id="tcp_ip" focusColor="#1976d2" labelFloat="true" promptText="TCP Server IP" text="172.19.80.183">
                      <font>
                         <Font name="Product Sans" size="15.0" />
                      </font></JFXTextField>
@@ -74,7 +74,7 @@
                   <Insets left="25.0" right="25.0" />
                </padding>
                <children>
-                  <JFXTextField fx:id="tcp_port" focusColor="#1976d2" labelFloat="true" promptText="TCP port">
+                  <JFXTextField fx:id="tcp_port" focusColor="#1976d2" labelFloat="true" promptText="TCP port" text="6969">
                      <font>
                         <Font name="Product Sans" size="15.0" />
                      </font></JFXTextField>
@@ -86,7 +86,7 @@
             </HBox>
             <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" spacing="35.0">
                <children>
-                  <JFXTextField fx:id="loc_ip" focusColor="#1976d2" labelFloat="true" promptText="Local IP">
+                  <JFXTextField fx:id="loc_ip" focusColor="#1976d2" labelFloat="true" promptText="Local IP" text="192.168.122.251">
                      <font>
                         <Font name="Product Sans" size="15.0" />
                      </font></JFXTextField>
@@ -96,7 +96,7 @@
                </padding></HBox>
             <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" spacing="35.0">
                <children>
-                  <JFXTextField fx:id="loc_port" focusColor="#1976d2" labelFloat="true" promptText="Local Port">
+                  <JFXTextField fx:id="loc_port" focusColor="#1976d2" labelFloat="true" promptText="Local Port" text="8888">
                      <font>
                         <Font name="Product Sans" size="15.0" />
                      </font></JFXTextField>
@@ -106,7 +106,7 @@
                </padding></HBox>
             <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" spacing="35.0">
                <children>
-                  <JFXTextField fx:id="rem_ip" focusColor="#1976d2" labelFloat="true" promptText="Remote IP">
+                  <JFXTextField fx:id="rem_ip" focusColor="#1976d2" labelFloat="true" promptText="Remote IP" text="172.19.116.98">
                      <font>
                         <Font name="Product Sans" size="15.0" />
                      </font></JFXTextField>
@@ -116,7 +116,7 @@
                </padding></HBox>
             <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" prefHeight="80.0" prefWidth="334.0" spacing="35.0">
                <children>
-                  <JFXTextField fx:id="rem_port" focusColor="#1976d2" labelFloat="true" promptText="Remote Port">
+                  <JFXTextField fx:id="rem_port" focusColor="#1976d2" labelFloat="true" promptText="Remote Port" text="9696">
                      <font>
                         <Font name="Product Sans" size="15.0" />
                      </font></JFXTextField>
