@@ -12,7 +12,7 @@ public class LoginThread extends Thread{
                 DataOutputStream outToServer = new DataOutputStream(clientSocket.getOutputStream());
                 BufferedReader inFromServer = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
                 credentials = Controller.aux_username.getText() + "-" + Controller.local_ip.getText() + "-" + Controller.local_port.getText();
-                outToServer.writeBytes(credentials+"\n");
+                outToServer.writeBytes(credentials+"\n".trim());
                 clientSocket.close();
             } catch (IOException e) {
                 e.printStackTrace();
