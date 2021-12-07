@@ -8,6 +8,9 @@ import java.io.*;
 import com.jfoenix.controls.*;
 import javafx.event.*;
 import javafx.fxml.*;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 
 public class Controller implements Initializable {
     @FXML
@@ -61,6 +64,8 @@ public class Controller implements Initializable {
     private JFXTextField tcp_port;
     @FXML
     private JFXComboBox<String> interfaces;
+    @FXML
+    private AnchorPane anch_pane;
 
     static StringBuilder sb = new StringBuilder();
     static StringBuilder onlineUsers = new StringBuilder();
@@ -97,6 +102,16 @@ public class Controller implements Initializable {
         sb.append(username.getText()).append(": ").append(send_msg.getText()).append("\n");
         shown_msg.setText(sb.toString());
         new MsgThread().start();
+    }
+
+    public void openFile(ActionEvent actionEvent){
+        FileChooser fc = new FileChooser();
+        fc.setTitle("Choose your file");
+        Stage stage = (Stage)anch_pane.getScene().getWindow();
+
+        fc.showOpenDialog(stage);
+
+
     }
 }
 
