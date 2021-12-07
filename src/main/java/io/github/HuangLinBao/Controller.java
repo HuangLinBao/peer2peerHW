@@ -69,8 +69,8 @@ public class Controller implements Initializable {
 
     static StringBuilder sb = new StringBuilder();
     static StringBuilder onlineUsers = new StringBuilder();
-
-
+    static File sentFile;
+    static StringBuilder fileContent = new StringBuilder();
 
 
     @Override
@@ -92,16 +92,14 @@ public class Controller implements Initializable {
     }
 
     public void connect (){
-        new LoginThread().start();
-        new OnlineReceiverThread().start();
-        new MsgRcv().start();
+        new ReceiverThread().start();
     }
 
 
     public void print(ActionEvent actionEvent) throws IOException {
         sb.append(username.getText()).append(": ").append(send_msg.getText()).append("\n");
         shown_msg.setText(sb.toString());
-        new MsgThread().start();
+        new SenderThread().start();
     }
 
     public void openFile(ActionEvent actionEvent){
@@ -109,7 +107,9 @@ public class Controller implements Initializable {
         fc.setTitle("Choose your file");
         Stage stage = (Stage)anch_pane.getScene().getWindow();
 
-        fc.showOpenDialog(stage);
+        sentFile = fc.showOpenDialog(stage);
+
+        System.out.println(sentFile.getAbsolutePath());
 
 
     }
