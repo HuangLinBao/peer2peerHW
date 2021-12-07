@@ -10,7 +10,7 @@ public class ReceiverThread extends Thread {
             Controller.onlineUsers.append(Controller.aux_username.getText()).append(" - ").append(Controller.local_ip.getText()).append("\n");
             Controller.aux_online_list.setText(Controller.onlineUsers.toString());
             DatagramSocket clientSocket = new DatagramSocket(Integer.parseInt(Controller.local_port.getText()));
-            while (true) {
+            while (Controller.UDP) {
                 byte[] receivedData = new byte[1024];
                 DatagramPacket receivePacket =
                         new DatagramPacket(receivedData, receivedData.length);

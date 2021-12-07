@@ -1,6 +1,7 @@
 package io.github.HuangLinBao;
 
 import java.net.*;
+import java.security.PublicKey;
 import java.util.*;
 import java.io.*;
 
@@ -71,7 +72,8 @@ public class Controller implements Initializable {
     static StringBuilder onlineUsers = new StringBuilder();
     static File sentFile;
     static StringBuilder fileContent = new StringBuilder();
-
+    static boolean TCP;
+    static boolean UDP;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -91,15 +93,39 @@ public class Controller implements Initializable {
 
     }
 
-    public void connect (){
+
+    public  void connect(ActionEvent actionEvent){
+        UDP = true;
         new ReceiverThread().start();
     }
 
+    public void disconnect(ActionEvent actionEvent){
+        UDP = false;
+    }
 
-    public void print(ActionEvent actionEvent) throws IOException {
+    public void logIn (ActionEvent actionEvent){
+        TCP = true;
+        new LoginThread().start();
+        new MsgRcv().start();
+        new OnlineReceiverThread().start();
+
+
+    }
+
+    public void logOut (ActionEvent actionEvent){
+        TCP = false;
+    }
+
+
+    public void send(ActionEvent actionEvent) throws IOException {
         sb.append(username.getText()).append(": ").append(send_msg.getText()).append("\n");
         shown_msg.setText(sb.toString());
-        new SenderThread().start();
+        if(TCP){
+            new MsgThread().start();
+        }
+        else if(UDP){
+            new SenderThread().start();
+        }
     }
 
     public void openFile(ActionEvent actionEvent){
