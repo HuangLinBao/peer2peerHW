@@ -10,8 +10,7 @@ import com.jfoenix.controls.*;
 import javafx.event.*;
 import javafx.fxml.*;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.FileChooser;
-import javafx.stage.Stage;
+import javafx.stage.*;
 
 public class Controller implements Initializable {
     @FXML

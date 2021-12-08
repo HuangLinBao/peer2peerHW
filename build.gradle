@@ -13,12 +13,16 @@ repositories {
 
 dependencies {
     implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.6.0'
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
     implementation group: 'org.openjfx', name: 'javafx-controls', version: '17'
     implementation group: 'org.openjfx', name: 'javafx-fxml', version: '17'
+    implementation group: 'org.openjfx', name: 'javafx-base', version: '17'
+    implementation group: 'org.openjfx', name: 'javafx-utill-fxpermission', version: '17'
     implementation group: 'com.jfoenix', name: 'jfoenix', version: '9.0.10'
     implementation 'javax.json:javax.json-api:1.1.4'
+    implementation group: 'org.fuin', name: 'utils4j', version: '0.12.0'
+
 
 
 }
